@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste de QI Grátis - 33 Perguntas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .question {
+      margin: 20px 0;
+      text-align: left;
+    }
+    .question img {
+      max-width: 100%;
+      margin: 10px 0;
+      border-radius: 10px;
+    }
+    button {
+      background: #0077cc;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🧠 Teste de QI Grátis</h1>
+    <p>Responda 33 perguntas e descubra seu resultado. <strong>Resultado completo disponível após pagamento de R$5,00.</strong></p>
+  </header>
+
+  <div class="container" id="quiz">
+    <h2>Pergunta 1 de 33</h2>
+    <div class="question" id="question-text">Qual número completa a sequência: 2, 4, 8, 16, ?</div>
+    <div>
+      <button onclick="nextQuestion()">32</button>
+      <button onclick="nextQuestion()">24</button>
+      <button onclick="nextQuestion()">20</button>
+      <button onclick="nextQuestion()">18</button>
+    </div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg" alt="Albert Einstein">
+  </div>
+
+  <div class="container" id="payment" style="display:none;">
+    <h2>Quase lá! 🎉</h2>
+    <p>Para visualizar seu resultado completo, finalize o pagamento de <strong>R$5,00</strong>.</p>
+    <a href="https://www.mercadopago.com.br/.subscription/checkout?preapproval_plan_id=5a3d016a16ea40abaa9e5c88681c8277" target="_blank">
+      <button>Pagar R$5,00</button>
+    </a>
+  </div>
+
+  <script>
+    let currentQuestion = 1;
+    const totalQuestions = 33;
+
+    function nextQuestion() {
+      currentQuestion++;
+      if (currentQuestion > totalQuestions) {
+        document.getElementById('quiz').style.display = 'none';
+        document.getElementById('payment').style.display = 'block';
+      } else {
+        document.querySelector('#quiz h2').innerText = `Pergunta ${currentQuestion} de ${totalQuestions}`;
+        document.getElementById('question-text').innerText = `Aqui vai o enunciado da pergunta ${currentQuestion}.`;
+      }
+    }
+  </script>
+</body>
+</html>
